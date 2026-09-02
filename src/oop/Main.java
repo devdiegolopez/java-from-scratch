@@ -11,7 +11,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         int val = 0;
-        int val2 = 0;
         Map<Integer,String> map = new HashMap<>();
         map.put(1,"diego");
         map.put(2,"benji");
@@ -25,6 +24,12 @@ public class Main {
         map.put(10,"diego");
         map.put(11,"benji");
         map.put(12,"alo");
+        Iterator<String> iterator = map.values().iterator();
+        while (iterator.hasNext()){
+            String element = iterator.next();
+            System.out.println(element);
+            iterator.remove();
+        }
         Scanner scanner = new Scanner(System.in);
         System.out.println(map);
             System.out.println("enter a key to get its value");
