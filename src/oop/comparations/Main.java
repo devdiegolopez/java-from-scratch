@@ -1,5 +1,8 @@
 package oop.comparations;
 
+import oop.enums.Constants;
+import oop.enums.VehicleException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,5 +23,22 @@ public class Main {
         personaList.forEach(System.out::print);
         Collections.sort(personaList);
         System.out.println();
-        personaList.forEach(System.out::print);    }
+        personaList.forEach(System.out::print);
+        Deposit deposit = new Deposit(true,1200.00,10000);
+        Deposit deposit2 = new Deposit(false,12000.00,10000);
+        System.out.println();
+        int ok = deposit.compare(deposit2,deposit2);
+        try {
+            if (ok == 1) {
+                System.out.println("successful");
+            } else {
+                throw new VehicleException(Constants.NOT_ENOUGH_BUDGET);
+            }
+        } catch (VehicleException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(ok);
+        System.out.println(ok);
+    }
 }
