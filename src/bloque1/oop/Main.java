@@ -1,10 +1,10 @@
-package oop;
+package bloque1.oop;
 
-import oop.enums.Constants;
-import oop.enums.VehicleException;
-import oop.generics.Unit;
-import oop.generics.Package;
-import oop.inner.Backpack;
+import bloque1.oop.enums.Constants;
+import bloque1.oop.enums.VehicleException;
+import bloque1.oop.generics.Unit;
+import bloque1.oop.generics.Package;
+import bloque1.oop.inner.Backpack;
 
 import java.util.*;
 

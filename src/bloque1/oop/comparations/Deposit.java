@@ -1,4 +1,4 @@
-package oop.comparations;
+package bloque1.oop.comparations;
 
 import java.util.Comparator;
 

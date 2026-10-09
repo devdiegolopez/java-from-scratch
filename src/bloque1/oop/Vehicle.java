@@ -1,4 +1,4 @@
-package oop;
+package bloque1.oop;
 
 public class Vehicle {
     String model;

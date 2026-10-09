@@ -1,4 +1,4 @@
-package oop.dtos;
+package bloque1.oop.dtos;
 
 import java.util.Optional;
 import java.util.Scanner;

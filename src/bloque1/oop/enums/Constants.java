@@ -1,4 +1,4 @@
-package oop.enums;
+package bloque1.oop.enums;
 
 public enum Constants {
     ERROR_MESSAGE("ERROR UNEXPECTED"),
