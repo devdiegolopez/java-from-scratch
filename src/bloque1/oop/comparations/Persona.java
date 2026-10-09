@@ -1,4 +1,4 @@
-package oop.comparations;
+package bloque1.oop.comparations;
 
 public class Persona implements Comparable<Persona>{
     String name;

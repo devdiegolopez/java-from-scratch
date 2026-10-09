@@ -1,10 +1,9 @@
-package oop.comparations;
+package bloque1.oop.comparations;
 
-import oop.enums.Constants;
-import oop.enums.VehicleException;
+import bloque1.oop.enums.Constants;
+import bloque1.oop.enums.VehicleException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package oop.generics;
+package bloque1.oop.generics;
 
 public class Package <T>{
     private T type;

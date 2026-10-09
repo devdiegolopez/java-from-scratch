@@ -1,4 +1,4 @@
-package oop.inner;
+package bloque1.oop.inner;
 
 public class Backpack {
     static String size;
