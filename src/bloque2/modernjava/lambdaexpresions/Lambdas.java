@@ -32,6 +32,15 @@ public class Lambdas {
             }
         };
         functionalAnimal.makeNoise("jano",30);
+        BasicOperation operationn = new BasicOperation() {
+            @Override
+            public double sum(double x, double z) {
+                return x+z;
+            }
+        };
+        System.out.println(operationn.sum(10,10));
+        BasicOperation basicOperation = ((x, z) -> x+z);
+        System.out.println(basicOperation.sum(1000,10000));
     }
 }
 @FunctionalInterface
