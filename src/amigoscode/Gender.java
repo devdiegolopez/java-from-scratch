@@ -1,4 +1,4 @@
-package amigoscode.imperative;
+package amigoscode;
 
 public enum Gender {
     MALE,
