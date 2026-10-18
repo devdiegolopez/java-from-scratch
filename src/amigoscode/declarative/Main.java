@@ -2,9 +2,7 @@ package amigoscode.declarative;
 import amigoscode.Gender;
 import amigoscode.Person;
 import bloque2.modernjava.exercise.model.Contact;
-
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -33,6 +31,8 @@ public class Main {
         System.out.println(getDBConnection.get());
         Person random = getPerson.get();
         System.out.println(random);
+        List<Integer> evenNums = filtering.apply(List.of(1,2,3,4,5,6,7,8,9,10));
+        evenNums.forEach(System.out::println);
     }
     static Function<Integer,Integer> incrementByOne = num -> num+1;
     static BiFunction<Double,Double,Long> incrementByTwo = (n1,n2) -> (long) (Math.pow(n1,n2) * 2);
@@ -42,4 +42,5 @@ public class Main {
     static Predicate<String> isPhoneValidLambda = p -> p.length() == 10 && p.startsWith("55");
     static Supplier<String> getDBConnection = () -> "getConnectionParams";
     static Supplier<Person> getPerson = () -> new Person(UUID.randomUUID().toString(),Gender.MALE, (int) (Math.random()*10));
+    static Function<List<Integer>,List<Integer>> filtering = list -> list.stream().filter(integer -> integer % 2== 0).toList();
 }
