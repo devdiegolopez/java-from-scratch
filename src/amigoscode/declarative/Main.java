@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
-    static void main(String[] args) {
+    static void main(String[] args) throws Exception {
         List<Person> people = List.of(
                 new Person("liz", Gender.FEMALE,29),
                 new Person("diego",Gender.MALE,32),
@@ -30,7 +30,7 @@ public class Main {
         Long increment2 = incrementByTwo.apply(10.0,10.0);
         logger.info(increment2.toString());
         final String myNum = "5691442348";
-        logger.info(String.valueOf(isPhoneValid(myNum)));
+        logger.warn(String.valueOf(isPhoneValid(myNum)));
         boolean phone = isPhoneValidLambda.test("5691442348");
         logger.error("IS VALID?: {}", phone);
         logger.info(getDBConnection.get());
@@ -40,6 +40,14 @@ public class Main {
         int totalEven = evenNums.stream().mapToInt(Integer::intValue).sum();
         logger.info(evenNums.toString());
         logger.info(String.valueOf(totalEven));
+        Contact lol =  Optional.ofNullable(people.get(3).contact())
+                .orElseThrow(() -> new Exception("mamo"));
+        logger.error(lol.toString());
+
+        MyFunctionalInterface myFunctionalInterface = (n, s) -> n +s;
+        Double resFucntionalInterface = myFunctionalInterface.mathops(10,19);
+        logger.info("sum {}",resFucntionalInterface);
+        logger.info(List.of(getAges.apply(people).toString()).toString());
     }
     static Function<Integer,Integer> incrementByOne = num -> num+1;
     static BiFunction<Double,Double,Long> incrementByTwo = (n1,n2) -> (long) (Math.pow(n1,n2) * 2);
@@ -50,5 +58,6 @@ public class Main {
     static Supplier<String> getDBConnection = () -> "getConnectionParams";
     static Supplier<Person> getPerson = () -> new Person(UUID.randomUUID().toString(),Gender.MALE, (int) (Math.random()*10));
     static Function<List<Integer>,List<Integer>> filtering = list -> list.stream().filter(integer -> integer % 2== 0).toList();
+    static Function<List<Person>,List<Integer>> getAges = people -> (List<Integer>) people.stream().map(Person::age).toList();
 
 }
