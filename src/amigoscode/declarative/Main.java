@@ -44,10 +44,13 @@ public class Main {
                 .orElseThrow(() -> new Exception("mamo"));
         logger.error(lol.toString());
 
-        MyFunctionalInterface myFunctionalInterface = (n, s) -> n +s;
+        MyFunctionalInterface myFunctionalInterface = Double::sum;
         Double resFucntionalInterface = myFunctionalInterface.mathops(10,19);
         logger.info("sum {}",resFucntionalInterface);
         logger.info(List.of(getAges.apply(people).toString()).toString());
+        List<String> peopleToBeReferencedConstructor = List.of("Diego","Beno","Kivardo");
+        List<Person> personList = peopleMethodReferenceAfterBeignReferenced(peopleToBeReferencedConstructor);
+        personList.forEach(personList2 -> logger.info("{}",personList2));
     }
     static Function<Integer,Integer> incrementByOne = num -> num+1;
     static BiFunction<Double,Double,Long> incrementByTwo = (n1,n2) -> (long) (Math.pow(n1,n2) * 2);
@@ -59,5 +62,7 @@ public class Main {
     static Supplier<Person> getPerson = () -> new Person(UUID.randomUUID().toString(),Gender.MALE, (int) (Math.random()*10));
     static Function<List<Integer>,List<Integer>> filtering = list -> list.stream().filter(integer -> integer % 2== 0).toList();
     static Function<List<Person>,List<Integer>> getAges = people -> (List<Integer>) people.stream().map(Person::age).toList();
-
+    static List<Person> peopleMethodReferenceAfterBeignReferenced (List<String> stringList){
+        return stringList.stream().map(Person::new).toList();
+    }
 }
